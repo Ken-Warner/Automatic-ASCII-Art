@@ -1,0 +1,15 @@
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\bin\Debug\netcoreapp3.1\ASCIIArter.exe
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\bin\Debug\netcoreapp3.1\ASCIIArter.deps.json
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\bin\Debug\netcoreapp3.1\ASCIIArter.runtimeconfig.json
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\bin\Debug\netcoreapp3.1\ASCIIArter.runtimeconfig.dev.json
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\bin\Debug\netcoreapp3.1\ASCIIArter.dll
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\bin\Debug\netcoreapp3.1\ASCIIArter.pdb
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.csprojAssemblyReference.cache
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.csproj.GenerateResource.cache
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.AssemblyInfoInputs.cache
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.AssemblyInfo.cs
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.csproj.CoreCompileInputs.cache
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.dll
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.pdb
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.genruntimeconfig.cache
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.MainWindow.resources
