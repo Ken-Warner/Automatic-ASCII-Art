@@ -42,6 +42,7 @@ namespace ASCIIArter
             this.thumbnailPictureBox = new System.Windows.Forms.PictureBox();
             this.asciiPreviewTextBox = new System.Windows.Forms.TextBox();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.testButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.charWidthNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.charHeightNumericUpDown)).BeginInit();
             this.dimsGroupBox.SuspendLayout();
@@ -188,11 +189,22 @@ namespace ASCIIArter
             this.saveFileDialog.Filter = "Plain Text(*.txt)|*.txt";
             this.saveFileDialog.Title = "Save";
             // 
+            // testButton
+            // 
+            this.testButton.Location = new System.Drawing.Point(127, 197);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(153, 23);
+            this.testButton.TabIndex = 10;
+            this.testButton.Text = "Test";
+            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 233);
+            this.Controls.Add(this.testButton);
             this.Controls.Add(this.asciiPreviewTextBox);
             this.Controls.Add(this.thumbnailPictureBox);
             this.Controls.Add(this.saveFileButton);
@@ -228,6 +240,7 @@ namespace ASCIIArter
         private System.Windows.Forms.PictureBox thumbnailPictureBox;
         private System.Windows.Forms.TextBox asciiPreviewTextBox;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button testButton;
     }
 }
 

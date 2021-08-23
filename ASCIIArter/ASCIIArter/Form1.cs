@@ -26,7 +26,7 @@ namespace ASCIIArter
             //nothing to calculate if there is no image and the user doesn't want to preserve aspect ratio
             if (aspectRatioCheckBox.Checked && loadedImage != null)
             {
-
+                //todo implement
             }
         }
 
@@ -34,7 +34,7 @@ namespace ASCIIArter
         {
             if (aspectRatioCheckBox.Checked && loadedImage != null)
             {
-
+                //todo implement
             }
         }
 
@@ -90,6 +90,36 @@ namespace ASCIIArter
                     File.WriteAllText(saveFileDialog.FileName, asciiPreviewTextBox.Text);
                 }
             }
+        }
+
+        private void testButton_Click(object sender, EventArgs e)
+        {
+            if (loadedImage == null)
+                return;
+
+            //grayscale the image
+            Bitmap grayBitmap = new Bitmap(loadedImage.Width, loadedImage.Height);
+
+            for (int w = 0; w < loadedImage.Width; w++)
+                for (int h = 0; h < loadedImage.Height; h++)
+                {
+                    Color pixelColor = loadedImage.GetPixel(w, h);
+
+                    int grayValue = (int)((pixelColor.R * .3) + (pixelColor.G * .59) + (pixelColor.B * .11));
+
+                    grayBitmap.SetPixel(w, h, Color.FromArgb(grayValue, grayValue, grayValue));
+                }
+
+            Bitmap resizedBitmap = new Bitmap(grayBitmap, 50, 30);
+            
+
+            testWindow window = new testWindow()
+            {
+                normalImage = resizedBitmap,
+            };
+
+            window.Show();
+
         }
     }
 }

@@ -13,3 +13,4 @@ D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netco
 D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.pdb
 D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.genruntimeconfig.cache
 D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.MainWindow.resources
+D:\ProgrammingProjects\Automatic-ASCII-Art\ASCIIArter\ASCIIArter\obj\Debug\netcoreapp3.1\ASCIIArter.testWindow.resources
