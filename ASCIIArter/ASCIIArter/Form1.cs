@@ -92,30 +92,95 @@ namespace ASCIIArter
             }
         }
 
+        /// <summary>
+        /// Grayscales the pixels of a bitmap
+        /// </summary>
+        /// <param name="bitmap">The bitmap to grayscale</param>
+        /// <returns>A new grayscaled version of the input</returns>
+        private Bitmap GrayscaleBitmap(Bitmap bitmap)
+        {
+            //check if the bitmap exists
+            if (bitmap != null)
+            {
+                //create a new bitmap of the same dimensions
+                Bitmap grayBmp = new Bitmap(bitmap.Width, bitmap.Height);
+
+                //foreach pixel in the bitmap
+                for (int w = 0; w < bitmap.Width; w++)
+                    for (int h = 0; h < bitmap.Height; h++)
+                    {
+                        //get that pixel
+                        Color pixelColor = bitmap.GetPixel(w, h);
+                        //get it's grayscaled value
+                        int grayValue = (int)((pixelColor.R * .3) + (pixelColor.G * .59) + (pixelColor.B * .11));
+                        //set it in the new bitmap
+                        grayBmp.SetPixel(w, h, Color.FromArgb(grayValue, grayValue, grayValue));
+                    }
+
+                return grayBmp;
+            } else
+            {
+                return null; //if the input parameter was null
+            }
+        }
+
+        /// <summary>
+        /// Resizes a bitmap according to the Width and Height provided
+        /// </summary>
+        /// <param name="bitmap">The bitmap to resize</param>
+        /// <param name="Width">The new height of the bitmap</param>
+        /// <param name="Height">The new width of the bitmap</param>
+        /// <returns>A new bitmap created from the original one with the specified dimensions</returns>
+        private Bitmap ResizeBitmap(Bitmap bitmap, int Width, int Height)
+        {
+            if (bitmap == null)
+                return null;
+            else
+                return new Bitmap(bitmap, Width, Height);
+        }
+
+        private void ClampValues(Bitmap bitmap, int numberOfValues)
+        {
+            //must have at least 2 pixel values in the bitmap
+            if (numberOfValues < 2 || numberOfValues > byte.MaxValue)
+                return;
+
+            //calculate the step for each clamping
+            int step = (int)(255.0 / numberOfValues);
+
+            //foreach pixel in the image
+            for (int w = 0; w < bitmap.Width; w++)
+                for (int h = 0; h < bitmap.Height; h++)
+                {
+                    //get the value
+                    byte pixelColor = bitmap.GetPixel(w, h).R;
+                    byte clampedColor = 0;
+                    //find out what the value should be clamped to
+                    for (int i = numberOfValues; i >= 1; i--)
+                    {
+                        if (pixelColor < (step * i))
+                            clampedColor = (byte)(step * (i - 1));
+                        //todo this algorithm needs to be designed
+                    }
+
+                    //set the new pixel values
+                    bitmap.SetPixel(w, h, Color.FromArgb(clampedColor, clampedColor, clampedColor));
+                }
+        }
+
         private void testButton_Click(object sender, EventArgs e)
         {
             if (loadedImage == null)
                 return;
 
-            //grayscale the image
-            Bitmap grayBitmap = new Bitmap(loadedImage.Width, loadedImage.Height);
 
-            for (int w = 0; w < loadedImage.Width; w++)
-                for (int h = 0; h < loadedImage.Height; h++)
-                {
-                    Color pixelColor = loadedImage.GetPixel(w, h);
-
-                    int grayValue = (int)((pixelColor.R * .3) + (pixelColor.G * .59) + (pixelColor.B * .11));
-
-                    grayBitmap.SetPixel(w, h, Color.FromArgb(grayValue, grayValue, grayValue));
-                }
-
-            Bitmap resizedBitmap = new Bitmap(grayBitmap, 50, 30);
+            Bitmap preprocessedBmp = ResizeBitmap(GrayscaleBitmap(loadedImage), 50, 30);
+            ClampValues(preprocessedBmp, 3);
             
 
             testWindow window = new testWindow()
             {
-                normalImage = resizedBitmap,
+                normalImage = preprocessedBmp,
             };
 
             window.Show();
