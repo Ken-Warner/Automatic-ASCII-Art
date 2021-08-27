@@ -146,7 +146,10 @@ namespace ASCIIArter
                 return;
 
             //calculate the step for each clamping
-            int step = (int)(255.0 / numberOfValues);
+            //one of the clamped values are accounted for in the edge case in the main loop.
+            //this is due to the rounding error of 255/numberOfValues. Because of this, the
+            //method creates numberOfValues - 1 bins automatically and the other is the edge case.
+            int step = (int)(255.0 / numberOfValues - 1);
 
             //foreach pixel in the image
             for (int w = 0; w < bitmap.Width; w++)
@@ -155,12 +158,19 @@ namespace ASCIIArter
                     //get the value
                     byte pixelColor = bitmap.GetPixel(w, h).R;
                     byte clampedColor = 0;
-                    //find out what the value should be clamped to
-                    for (int i = numberOfValues; i >= 1; i--)
+
+                    //check an edge case
+                    if (pixelColor >= (step * (numberOfValues - 1)))
                     {
-                        if (pixelColor < (step * i))
-                            clampedColor = (byte)(step * (i - 1));
-                        //todo this algorithm needs to be designed
+                        clampedColor = byte.MaxValue;
+                    } else
+                    { //no edge case
+                        //find out what the value should be clamped to
+                        for (int i = 1; i <= numberOfValues - 1; i++)
+                        {
+                            if (pixelColor < (step * i) && pixelColor >= (step * (i - 1)))
+                                clampedColor = (byte)(step * (i - 1));
+                        }
                     }
 
                     //set the new pixel values
@@ -174,8 +184,8 @@ namespace ASCIIArter
                 return;
 
 
-            Bitmap preprocessedBmp = ResizeBitmap(GrayscaleBitmap(loadedImage), 50, 30);
-            ClampValues(preprocessedBmp, 3);
+            Bitmap preprocessedBmp = ResizeBitmap(GrayscaleBitmap(loadedImage), 400, 400);
+            ClampValues(preprocessedBmp, 5);
             
 
             testWindow window = new testWindow()

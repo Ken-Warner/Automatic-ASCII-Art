@@ -38,7 +38,6 @@ namespace ASCIIArter
             this.testPictureBox.Location = new System.Drawing.Point(12, 12);
             this.testPictureBox.Name = "testPictureBox";
             this.testPictureBox.Size = new System.Drawing.Size(400, 400);
-            this.testPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.testPictureBox.TabIndex = 0;
             this.testPictureBox.TabStop = false;
             // 
